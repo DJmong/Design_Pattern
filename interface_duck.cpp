@@ -2,17 +2,19 @@
 #include <string>
 #include <sstream>
 
-
+// interafce class
 class flyBehavior{
 public:
 	virtual void fly() {};
 };
 
+// interace class
 class quackBehavior{
 public:
 	virtual void quack() {};
 };
 
+// fly method implement
 class flyWithWing : public flyBehavior{
 public:
 	void fly(){
@@ -27,6 +29,7 @@ public:
 	}
 };
 
+// quack method implement
 class sayQuack : public quackBehavior{
 	void quack(){
 		std::cout << "quack!" << std::endl;
@@ -39,11 +42,12 @@ class sayQQuack : public quackBehavior{
 	}
 };
 
+// duck class implement
 class duck{
 public:
 	flyBehavior *flyInstance;
 	quackBehavior *quackInstance;
-	duck(){
+	~duck(){
 		delete flyInstance;
 		delete quackInstance;
 	}
